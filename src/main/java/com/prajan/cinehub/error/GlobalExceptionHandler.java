@@ -95,7 +95,7 @@ public class GlobalExceptionHandler {
                 LocalDateTime.now(),
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 "Internal Server Error",
-                ex.getMessage()
+                "Internal Server Error"
         );
 
         return new ResponseEntity<>(

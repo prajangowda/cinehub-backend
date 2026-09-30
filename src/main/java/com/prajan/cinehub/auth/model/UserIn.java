@@ -47,6 +47,14 @@ public class UserIn {
     )
     private List<TheatreOwnerRequest> theatreOwnerRequests = new ArrayList<>();
 
+
+    @OneToMany(
+            mappedBy = "owner",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Theatre> theatres;
+
     @Override
     public String toString() {
         return "UserIn{" +

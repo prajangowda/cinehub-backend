@@ -28,20 +28,20 @@ public class Appconfig {
     @Bean public ObjectMapper objectMapper() {
         return new ObjectMapper(); }
 
-    @Bean
-    public JavaMailSender javaMailSender() {
-
-        JavaMailSenderImpl sender = new JavaMailSenderImpl();
-
-        sender.setHost("smtp.gmail.com");
-        sender.setPort(587);
-        sender.setUsername(System.getenv("GMAIL"));
-        sender.setPassword(System.getenv("APP_PASS"));
-
-        var props = sender.getJavaMailProperties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-
-        return sender;
-    }
+//    @Bean
+//    public JavaMailSender javaMailSender() {
+//
+//        JavaMailSenderImpl sender = new JavaMailSenderImpl();
+//
+//        sender.setHost("smtp.gmail.com");
+//        sender.setPort(587);
+//        sender.setUsername(System.getenv("GMAIL"));
+//        sender.setPassword(System.getenv("APP_PASS"));
+//
+//        var props = sender.getJavaMailProperties();
+//        props.put("mail.smtp.auth", "true");
+//        props.put("mail.smtp.starttls.enable", "true");
+//
+//        return sender;
+//    }
 }

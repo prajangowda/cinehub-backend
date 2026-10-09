@@ -41,7 +41,7 @@ public class SecurityConfig {
                                 "/api/v1/auth/**",
                                 "/api/v1/oauth2/**",
                                 "/api/v1/public/**",
-                                "/api/v1/actuator/health"
+                                "/actuator/health"
                         ).permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/Theatre_owner/**").hasRole("THEATRE_OWNER")

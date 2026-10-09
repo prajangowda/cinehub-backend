@@ -4,6 +4,7 @@ import com.prajan.cinehub.auth.enums.Role;
 import com.prajan.cinehub.auth.model.UserIn;
 import com.prajan.cinehub.auth.repository.UserInRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class TheatreOwnerRequestService {
     private final UserInRepository userRepository;
     private final TheatreOwnerRequestRepository requestRepository;
@@ -25,6 +27,8 @@ public class TheatreOwnerRequestService {
 
         UserIn user = userRepository.findById(userId)
                 .orElseThrow();
+
+        log.info("Request for {}",user.getName());
 
         requestRepository.findByUserAndStatus(user, RequestStatus.PENDING)
                 .ifPresent(r -> {

@@ -207,4 +207,9 @@ public class AuthService {
 
         return "OTP sent successfully.";
     }
+
+    public boolean sendMail() {
+        emailService.sendOtp("prajangowdap@gmail.com", "123456");
+        return true;
+    }
 }

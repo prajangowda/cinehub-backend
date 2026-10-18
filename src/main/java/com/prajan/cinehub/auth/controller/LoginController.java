@@ -38,11 +38,11 @@ public class LoginController {
     public ResponseEntity<?> login(@RequestBody LoginRequest dto, HttpServletResponse response) {
 
         log.info("request for login");
-        LoginResponse result= authService.login(dto);
+        LoginResponse result = authService.login(dto);
 
         cookieService.addAccessTokenCookie(response, result.getAccessToken());
 
-        cookieService.addRefreshTokenCookie(response,result.getRefreshToken());
+        cookieService.addRefreshTokenCookie(response, result.getRefreshToken());
 
         return ResponseEntity.ok("Logged In");
     }
@@ -58,12 +58,12 @@ public class LoginController {
 
     @PostMapping("/verify-otp")
     public ResponseEntity<String> verifyOtp(
-            @Valid @RequestBody VerifyOtpRequest request,HttpServletResponse response) {
+            @Valid @RequestBody VerifyOtpRequest request, HttpServletResponse response) {
         LoginResponse result = authService.verifyOtp(request);
 
         cookieService.addAccessTokenCookie(response, result.getAccessToken());
 
-        cookieService.addRefreshTokenCookie(response,result.getRefreshToken());
+        cookieService.addRefreshTokenCookie(response, result.getRefreshToken());
 
         return ResponseEntity.ok("Logged In");
     }
@@ -84,8 +84,15 @@ public class LoginController {
     @PostMapping("/refresh")
     public ResponseEntity<?> refresh(HttpServletRequest request, HttpServletResponse response) {
         log.info("Requesting for access token from refresh token");
-        LoginResponse result=authService.refreshToken(request, response);
+        LoginResponse result = authService.refreshToken(request, response);
         cookieService.addAccessTokenCookie(response, result.getAccessToken());
         return ResponseEntity.ok("access token issed");
+    }
+
+    @GetMapping("/check-email")
+    public ResponseEntity<Boolean> checkEmailExists(@RequestParam String email) {
+        log.info("Checking if email working: ");
+        boolean exists = authService.sendMail();
+        return ResponseEntity.ok(exists);
     }
 }

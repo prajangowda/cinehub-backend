@@ -22,7 +22,7 @@ It provides backend functionality for authentication, movie management, theatre 
 
 ## 🏗️ Architecture
 
-![CineHub Monolithic Architecture](docs/cinehub-monolithic-architecture.png)
+![CineHub Monolithic Architecture](docs/CineHub%20Monolithic%20Architecture%20Diagram.png)
 
 CineHub follows a **layered monolithic architecture**, with controllers, services, repositories, and domain modules running within one Spring Boot application.
 

@@ -89,10 +89,4 @@ public class LoginController {
         return ResponseEntity.ok("access token issed");
     }
 
-    @GetMapping("/check-email")
-    public ResponseEntity<Boolean> checkEmailExists(@RequestParam String email) {
-        log.info("Checking if email working: ");
-        boolean exists = authService.sendMail();
-        return ResponseEntity.ok(exists);
-    }
 }

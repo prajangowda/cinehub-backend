@@ -72,7 +72,7 @@ public class ShowController {
 //        );
 //    }
 
-    @GetMapping("/shows/{showId}/seats")
+    @GetMapping("/public/shows/{showId}/seats")
     public List<ShowSeatResponse> getShowSeats(
             @PathVariable Long showId
     ) {

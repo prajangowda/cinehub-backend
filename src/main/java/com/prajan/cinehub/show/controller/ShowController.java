@@ -35,7 +35,7 @@ public class ShowController {
                 .body(response);
     }
 
-    @GetMapping("/shows/{showId}")
+    @GetMapping("public/shows/{showId}")
     public ResponseEntity<ShowResponse> getShow(
             @PathVariable Long showId) {
 

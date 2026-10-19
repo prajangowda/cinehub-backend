@@ -44,7 +44,7 @@ public class BookingController {
     ) {
 
         UserIn currentUser = userDetails.getUser();
-
+        log.info("Fetching bookings for user: {}", currentUser.getName());
         List<MyBookingResponse> bookings =
                 bookingService.getMyBookings(currentUser.getId());
 
